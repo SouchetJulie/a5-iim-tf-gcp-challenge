@@ -23,5 +23,11 @@ module "bucket" {
   source   = "./modules/bucket"
   location = var.location
   backend  = var.backend
-  storage  = var.storage
+}
+
+# Manage the functions
+module "function" {
+  source = "./modules/function"
+  bucket = module.bucket.bucket_name
+  region = var.region
 }

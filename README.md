@@ -3,7 +3,10 @@
 ## Initialisation
 (Optionnel) Pour éviter de renseigner à la main les différentes variables à chaque fois, on peut créer un fichier terraform.tfvars les contenant :
 ```hcl
+TODO
 ```
+
+Activer les API Google Cloud nécessaires : (lien)[https://console.cloud.google.com/flows/enableapi?apiid=cloudbuild.googleapis.com,run.googleapis.com,artifactregistry.googleapis.com,cloudfunctions.googleapis.com,storage.googleapis.com]
 
 Initialiser Terraform :
 ```sh
@@ -28,3 +31,6 @@ Puis migrer le state vers le backend distant :
 ```sh
 terraform init -migrate-state
 ```
+
+## Création
+
