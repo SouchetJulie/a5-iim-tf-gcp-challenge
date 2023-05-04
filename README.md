@@ -10,7 +10,7 @@ Puis à l'intérieur, mettre le nom du bucket :
 bucket = "<bucket_name>"
 ```
 
-Initialiser Terraform :
+Initialiser Terraform avec le backend distant :
 ```sh
 terraform init -backend-config=backend.tfvars
 ```
