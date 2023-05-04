@@ -1,4 +1,4 @@
-
+// Global settings
 variable "region" {
   description = "The region in which to create the infrastructure."
   type        = string
@@ -14,6 +14,7 @@ variable "project" {
   type        = string
 }
 
+// Buckets
 variable "backend" {
   description = "The name of the bucket in which to store the Terraform state data."
   type        = string
@@ -22,5 +23,16 @@ variable "backend" {
 variable "location" {
   description = "Where to create the buckets. (ex. EU, US)"
   type        = string  
+}
+
+// BigQuery
+variable "dataset" {
+  description = "The id of the BigQuery dataset to access."
+  type        = string
+}
+
+variable "table" {
+  description = "The id of the BigQuery table to access."
+  type        = string
 }
 

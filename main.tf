@@ -25,9 +25,20 @@ module "bucket" {
   backend  = var.backend
 }
 
-# Manage the functions
+# Manage the cloud function
 module "function" {
-  source = "./modules/function"
-  bucket = module.bucket.bucket_name
-  region = var.region
+  source  = "./modules/function"
+  bucket  = module.bucket.bucket_name
+  region  = var.region
+  dataset = module.dataset.dataset_id
+  table   = module.dataset.table_id
+  project = var.project
+}
+
+# Manage the dataset
+module "dataset" {
+  source   = "./modules/bigquery"
+  location = var.location
+  dataset  = var.backend
+  table    = var.table
 }
