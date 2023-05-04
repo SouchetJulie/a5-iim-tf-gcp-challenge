@@ -7,3 +7,8 @@ variable "backend" {
   description = "What name to give to the backend bucket."
   type        = string
 }
+
+variable "storage" {
+  description = "What name to give to the storage bucket."
+  type        = string
+}

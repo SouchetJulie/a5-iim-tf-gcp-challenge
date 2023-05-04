@@ -1,6 +1,10 @@
 # a5-iim-tf-gcp-challenge
 
 ## Initialisation
+(Optionnel) Pour éviter de renseigner à la main les différentes variables à chaque fois, on peut créer un fichier terraform.tfvars les contenant :
+```hcl
+```
+
 Initialiser Terraform :
 ```sh
 terraform init
