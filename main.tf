@@ -1,10 +1,20 @@
 terraform {
   required_providers {
-    google {
+    google = {
       source  = "hashicorp/google"
       version = "4.63.1"
     }
   }
+}
 
-  backend "gcs" {}
+provider "google" {  
+  region  = var.region
+  zone    = var.zone
+  project = var.project
+}
+
+module "bucket" {
+  source   = "./modules/bucket"
+  location = var.location
+  backend  = var.backend
 }

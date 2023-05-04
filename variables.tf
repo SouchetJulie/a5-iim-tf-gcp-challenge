@@ -19,3 +19,8 @@ variable "backend" {
   type        = string
 }
 
+variable "location" {
+  description = "Where to create the buckets. (ex. EU, US)"
+  type        = string  
+}
+

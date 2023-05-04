@@ -1,16 +1,26 @@
 # a5-iim-tf-gcp-challenge
 
 ## Initialisation
-Créer un bucket pour stocker l'état de Terraform, puis renseigner son nom dans un fichier backend.tfvars :
+Initialiser Terraform :
 ```sh
-mv backend.tfvars.copy backend.tfvars
-```
-Puis à l'intérieur, mettre le nom du bucket :
-```env
-bucket = "<bucket_name>"
+terraform init
 ```
 
-Initialiser Terraform avec le backend distant :
+Créer le bucket pour stocker le backend :
 ```sh
-terraform init -backend-config=backend.tfvars
+terraform plan -target=module.bucket.google_storage_bucket.backend -out=plan.tfplan
+terraform apply plan.tfplan
+```
+
+Mettre à jour main.tf en ajoutant ce bloc à `terraform` (l.7) :
+```hcl
+  backend "gcs" {
+    bucket = "<nom choisi précédemment>"
+    prefix = "terraform/state"
+  }
+```
+
+Puis migrer le state vers le backend distant :
+```sh
+terraform init -migrate-state
 ```
